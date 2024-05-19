@@ -6,10 +6,14 @@ body {
   justify-content: center;
   height: 100vh;
   margin: 0;
+  background: url('images/background.jpg') no-repeat center center fixed;
+  background-size: cover;
+  color: white; /* Ajustar a cor do texto para ser legível no novo fundo */
 }
 
 h1 {
   margin-bottom: 20px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
 .board {
@@ -17,21 +21,28 @@ h1 {
   grid-template-columns: repeat(3, 100px);
   grid-template-rows: repeat(3, 100px);
   gap: 5px;
+  position: relative;
 }
 
 .cell {
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #ddd;
-  font-size: 2em;
+  background-color: rgba(221, 221, 221, 0.8);
   cursor: pointer;
+  position: relative;
+  border-radius: 10px;
 }
 
-.cell.x {
-  color: blue;
+.cell img {
+  width: 80px;
+  height: 80px;
 }
 
-.cell.o {
-  color: red;
+.line {
+  position: absolute;
+  height: 6px;
+  background-color: red; /* Cor da linha de vitória */
+  transform-origin: center;
+  z-index: 10; /* Certifique-se de que a linha apareça sobre as células */
 }
